@@ -79,39 +79,7 @@ figure .image img {
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <script>
-
-        const fetchData = async(searchTearm) => {
-            const res = await axios.get('http://www.omdbapi.com/', {
-                params: {
-                    apikey: "13e27bcd",
-                    s: searchTearm,
-                }
-            })
-            console.log(res.data);
-        }
-        
-        const input = document.querySelector('input');
-        
-        const debounce = (func, delay = 1000) => {
-            let timeoutId;
-            return (...args) => {
-                if (timeoutId) {
-                    clearTimeout(timeoutId);
-                }
-                timeoutId = setTimeout(() => {
-                    func.apply(null, args);
-                }, delay)
-            }
-        }
-        
-        const onInput = e => {
-            fetchData(e.target.value);
-        }
-
-        input.addEventListener('input', debounce(onInput, 500))
-    </script>
-    
+    <script src="utils.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
