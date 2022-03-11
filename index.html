@@ -5,21 +5,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
 </head>
+<style>
+    .tutorial {
+  width: 600px;
+  text-align: center;
+  margin: auto;
+}
+
+figure.image {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+figure .image img {
+  width: 128px;
+}
+
+.notification {
+  margin-top: 20px !important;
+}
+
+.title .icon {
+  margin-left: 15px;
+}
+
+.hero {
+  margin-bottom: 20px;
+}
+
+.forms {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.dropdown-item img {
+  height: 50px;
+  margin-right: 10px;
+}
+</style>
+
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Movie Fight
+          <span class="icon">
+            <i class="fas fa-film"></i>
+          </span>
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+      <input />
+  </div>
+
 <body>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
-        const fetchData = async() => {
+
+        const fetchData = async(searchTearm) => {
             const res = await axios.get('http://www.omdbapi.com/', {
                 params: {
                     apikey: "13e27bcd",
-                    s: "batman"
+                    s: searchTearm,
                 }
             })
             console.log(res.data);
         }
-        fetchData()
+        
+        const input = document.querySelector('input');
+        input.addEventListener('input', e => {
+            fetchData(e.target.value)
+        })
     </script>
     
 </body>
