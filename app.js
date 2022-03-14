@@ -10,7 +10,7 @@ const autocompleteConfig = {
         return movie.Title;
     },
     async fetchData(searchTearm){
-        const res = await axios.get('http://www.omdbapi.com/', {
+        const res = await axios.get('https://www.omdbapi.com/', {
             params: { apikey: "13e27bcd", s: searchTearm}
         })
         if(res.data.Error){ return []}
